@@ -1,5 +1,5 @@
 """
-@module magnetics.magnet_layout
+@module magnetics.custom.magnet_layout
 
 mag-4: the LAYOUT COMPILER — slot-matrix rows in, a solved
 reluctance network + a priced bill-of-parts out. Flux paths are
@@ -30,8 +30,8 @@ Honesty:
 
 import json
 
-from magnetics.magnet_analysis import gates_for, _named, _rows
-from magnetics.magnetic_netlist import MU0
+from magnetics.custom.magnet_analysis import gates_for, _named, _rows
+from magnetics.magnetic_netlist_seed import MU0
 
 
 def _loads(row, attr, default):
@@ -267,7 +267,7 @@ def solve_layout(manager, layout_name):
     overlay manager (generated rows never persist)."""
     import types
 
-    from magnetics.magnetic_netlist import solve_network
+    from magnetics.magnetic_netlist_seed import solve_network
     try:
         generated = generate_network(manager, layout_name)
     except ValueError as exc:
@@ -325,7 +325,7 @@ def layout_cost(manager, layout_name, policy_name=''):
     except ValueError as exc:
         return {'ok': False, 'refusal': str(exc)}
     try:
-        from supplychain.formula_analysis import effective_unit_price
+        from supplychain.custom.formula_analysis import effective_unit_price
     except ImportError:
         return {'ok': False,
                 'refusal': 'supplychain module not enabled — '

@@ -1,5 +1,5 @@
 """
-@module magnetics.selftest_magnetics
+@module magnetics.magnetics_selftest
 
 Section-A selftests (mag-2/2r/2t): realization gates, derived role
 viability (the soft/hard split enforced by predicates, Earnshaw and
@@ -7,12 +7,12 @@ copper-gap honesty notes traveling, unassessed-not-assumed), the one
 vol<->wt conversion, the analytic composite predictors vs the msci
 FEM datum, cost-if-real gating, and the laddered answer.
 
-Run from polari-framework/: python3 -m magnetics.selftest_magnetics
+Run from polari-framework/: python3 -m magnetics.magnetics_selftest
 """
 
 import types
 
-from magnetics.magnet_analysis import (
+from magnetics.custom.magnet_analysis import (
     bruggeman, composite_predict, gates_for, laddered_answer,
     maxwell_garnett, role_viability, viability_matrix, vol_from_wt,
     wt_from_vol, _named,
@@ -243,7 +243,7 @@ check('literature rung is NdFeB and it is FLAGGED reference-only '
 
 print('== suite: mag-12 realization promotion (suggest, never '
       'mutate) ==')
-from magnetics.realization_promotion import (  # noqa: E402
+from magnetics.custom.realization_promotion import (  # noqa: E402
     promotion_report,
 )
 

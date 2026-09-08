@@ -1,5 +1,5 @@
 """
-@module magnetics.selftest_field_views
+@module magnetics.field_views_selftest
 
 mag-fv selftests: analytic primitives vs hand values (dipole
 axial/equatorial factor-2, wire 1/d), deterministic dispersion
@@ -9,7 +9,7 @@ flux tubes from the mag-4 layout, group alternation, and the
 refusal ladder (fem-2d, unknown primitive, missing bands/region).
 
 Run from polari-framework/:
-    python3 -m magnetics.selftest_field_views
+    python3 -m magnetics.field_views_selftest
 """
 
 import math
@@ -18,7 +18,7 @@ import types
 from magnetics.field_view_basis import (
     SEED_FIELD_BANDS, SEED_FIELD_GROUPS, SEED_FIELD_VIEWS,
 )
-from magnetics.field_views import (
+from magnetics.custom.field_views import (
     dipole_field, dispersion_payload, group_payload, shapes_payload,
     view_payload, wire_field,
 )

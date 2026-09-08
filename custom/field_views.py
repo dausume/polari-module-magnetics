@@ -1,5 +1,5 @@
 """
-@module magnetics.field_views
+@module magnetics.custom.field_views
 
 mag-fv analysis: analytic field primitives (EXACT closed forms —
 dipole everywhere, infinite straight wire everywhere, both stated),
@@ -18,7 +18,7 @@ import json
 import math
 import random
 
-from magnetics.magnet_analysis import _named, _rows
+from magnetics.custom.magnet_analysis import _named, _rows
 
 MU0_OVER_4PI = 1.0e-7
 
@@ -333,10 +333,10 @@ def flux_tube_payload(manager, view_name):
     device_kind = getattr(view, 'device_kind', '')
     device_ref = getattr(view, 'device_ref', '')
     if device_kind == 'block-layout':
-        from magnetics.magnet_layout import solve_layout
+        from magnetics.custom.magnet_layout import solve_layout
         solved = solve_layout(manager, device_ref)
     elif device_kind == 'magnetic-circuit':
-        from magnetics.magnetic_netlist import solve_network
+        from magnetics.magnetic_netlist_seed import solve_network
         try:
             solved = solve_network(manager, device_ref)
         except ValueError as exc:

@@ -1,5 +1,5 @@
 """
-@module magnetics.selftest_magnetic_circuits
+@module magnetics.magnetic_circuits_selftest
 
 mag-3 selftests: the reluctance solver against HAND-COMPUTED
 expectations (independent formulas coded here, not the solver's),
@@ -8,7 +8,7 @@ flagging, probe/coil sign conventions, sweep overrides, undeclared-
 node suggestions, and the compiler-contract entry.
 
 Run from polari-framework/:
-    python3 -m magnetics.selftest_magnetic_circuits
+    python3 -m magnetics.magnetic_circuits_selftest
 """
 
 import json
@@ -21,7 +21,7 @@ from magnetics.magnet_seed import (
 from magnetics.magnet_circuit_basis import (
     SEED_FLUX_NODES, SEED_MAGNETIC_CIRCUITS, SEED_MAGNETIC_ELEMENTS,
 )
-from magnetics.magnetic_netlist import (
+from magnetics.magnetic_netlist_seed import (
     compile_magnetic, render_spice_analog, run_analyses,
     solve_network,
 )

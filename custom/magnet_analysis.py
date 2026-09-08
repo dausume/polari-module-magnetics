@@ -1,5 +1,5 @@
 """
-@module magnetics.magnet_analysis
+@module magnetics.custom.magnet_analysis
 
 Duck-typed analysis over the Section-A rows: realization-ladder gates,
 derived role viability (predicates vs property values — never
@@ -384,7 +384,7 @@ def composite_predict(manager, powder_name, matrix_name,
         return out
     item = getattr(powder, 'item_ref', '')
     try:
-        from supplychain.formula_analysis import effective_unit_price
+        from supplychain.custom.formula_analysis import effective_unit_price
         filler = effective_unit_price(manager, item) if item else None
         m_item = matrix.get('item_ref', '')
         matrix_price = (effective_unit_price(manager, m_item)

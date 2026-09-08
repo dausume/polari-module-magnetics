@@ -1,5 +1,5 @@
 """
-@module magnetics.selftest_magnet_layout
+@module magnetics.magnet_layout_selftest
 
 mag-4 selftests: the ring-core demo solved against INDEPENDENT hand
 math (same lumping, coded here from the formulas), selective mortar
@@ -9,7 +9,7 @@ suggestions, the limb-only coil rule, and the per-part/per-joint
 bill with its gates.
 
 Run from polari-framework/:
-    python3 -m magnetics.selftest_magnet_layout
+    python3 -m magnetics.magnet_layout_selftest
 """
 
 import json
@@ -20,7 +20,7 @@ from magnetics.magnet_block_basis import (
     SEED_BLOCK_LAYOUTS, SEED_BLOCK_PLACEMENTS, SEED_BLOCK_VARIANTS,
     SEED_JOINT_MORTARS,
 )
-from magnetics.magnet_layout import (
+from magnetics.custom.magnet_layout import (
     dry_fit_report, generate_network, layout_cost, solve_layout,
 )
 from magnetics.magnet_seed import (

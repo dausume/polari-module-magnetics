@@ -1,5 +1,5 @@
 """
-@module magnetics.magnetic_netlist
+@module magnetics.magnetic_netlist_seed
 
 mag-3: the DATA-DRIVEN reluctance-network solver — circuit rows in,
 fluxes out, through the registered 'magnetic-netlist' compiler.
@@ -336,7 +336,7 @@ def compile_magnetic(domain_rows):
 SEED_MAGNETIC_COMPILER = {
     'name': 'magnetic-netlist',
     'domain': 'magnetics',
-    'compiler_ref': 'magnetics.magnetic_netlist:compile_magnetic',
+    'compiler_ref': 'magnetics.magnetic_netlist_seed:compile_magnetic',
     'description': 'MagneticElementDefinition/FluxNodeDefinition '
                    'rows -> a solved reluctance network (Hopkinson '
                    'analogy; MNA over the permeance matrix); '
@@ -386,7 +386,7 @@ def parity_run(manager, circuit_name):
     runner and compare source fluxes — two solvers, one truth.
     Gated: refuses naming the missing capability."""
     try:
-        from electrodevice.circuit_netlist import run_netlist
+        from electrodevice.circuit_netlist_seed import run_netlist
     except ImportError:
         return {'ok': False,
                 'refusal': 'electrodevice module not enabled on '

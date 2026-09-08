@@ -1,5 +1,5 @@
 """
-@module magnetics.realization_promotion
+@module magnetics.custom.realization_promotion
 
 mag-12: MEASURED EVIDENCE MEETS THE REALIZATION LADDER — as a
 SUGGESTION, never a mutation.
@@ -77,12 +77,12 @@ Evidence tables are read at DATA level (manager.objectTables), the
 way bizops reads magnetics: this module must work when motors or
 bizops are gated off, and say so rather than failing to import.
 
-@consumers magnetics.magnet_api, magnetics.selftest_magnetics
+@consumers magnetics.magnet_api, magnetics.magnetics_selftest
 """
 
 import json
 
-from magnetics.magnet_analysis import (
+from magnetics.custom.magnet_analysis import (
     buyable_cited, _named, _rows, recipe_seeded,
 )
 from magnetics.magnet_basis import REALIZATION_LEVELS
